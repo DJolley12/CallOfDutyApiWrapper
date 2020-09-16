@@ -6,7 +6,7 @@ Logging In:
 
 You will need to login through a COD account to begin pulling data, so you will need an existing account. Usage is as follows:
 
-APICaller _apiCaller = new APICaller(<email address for>, <password for account>) 
+APICaller _apiCaller = new APICaller(-email address for account-, -password for account-) 
 Constructor will automatically authenticate. You will need to reauthenticate every two hours.
 
 --Currently WIP, will upload additional data requests when able 
