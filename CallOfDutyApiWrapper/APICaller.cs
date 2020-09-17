@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CallOfDutyApiWrapper
 {
@@ -58,6 +62,51 @@ namespace CallOfDutyApiWrapper
                     lastLoggedIn = DateTime.UtcNow;
                 }
             }
+        }
+
+        public async Task<JObject> GetPlayerOverviewInfoForWarzoneAsync(string gamerTag, string version, string platform)
+        {
+            JObject json = new JObject();
+            if (gamerTag == null || gamerTag.Trim() == "")
+            {
+                return null;
+            }
+
+            var trimmedGamerTag = gamerTag.Trim();
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var urlEncodedUsername = HttpUtility.UrlEncode(trimmedGamerTag);
+            string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/stats/cod/{version}/title/mw/platform/{platform}/gamer/{urlEncodedUsername}/profile/type/wz";
+            var response = await client.GetAsync(getPlayerUrl);
+            var content = await response.Content.ReadAsStringAsync();
+            var responseSuccess = ReturnSuccess(content);
+            if (responseSuccess)
+            {
+                json = (JObject)JsonConvert.DeserializeObject(content);
+                return json;
+            }
+            return null;
+        }
+
+        public async Task<JObject> GetPlayerMatchDataForWarzoneAsync(string gamerTag, string startTime, string endTime, string version, string platform)
+        {
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var urlEncodedUsername = HttpUtility.UrlEncode(gamerTag);
+            string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/crm/cod/{version}/title/mw/platform/{platform}/gamer/{urlEncodedUsername}/matches/wz/start/0/end/0/details";
+            var response = await client.GetAsync(getPlayerUrl);
+            var content = await response.Content.ReadAsStringAsync();
+            var responseSuccess = ReturnSuccess(content);
+            if (responseSuccess)
+            {
+                var deserializedContent = (JObject)JsonConvert.DeserializeObject(content);
+                return deserializedContent;
+            }
+                
+            return null;
         }
 
         private string ParseCookie(string cookieValue)
