@@ -14,5 +14,6 @@ namespace CallOfDutyApiWrapper.Models
         public ulong Uno { get; set; }
         public string Clantang { get; set; }
         public WzBrMissionStats BrMissionStats {get; set;}
+        public WzBrLoadout Loadout { get; set; }
     }
 }
