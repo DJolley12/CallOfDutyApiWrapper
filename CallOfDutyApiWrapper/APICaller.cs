@@ -123,7 +123,7 @@ namespace CallOfDutyApiWrapper
             return null;
         }
 
-        public async Task<JObject> GetPlayerMatchDataForWarzoneAsync(string gamerTag, string startTime, string endTime, Enums.Version version, Platform platform)
+        public async Task<JObject> GetPlayerMatchDataForByUnixMillisecondsDateWarzoneAsync(string gamerTag, string startTime, string endTime, Enums.Version version, Platform platform)
         {
             if (gamerTag == null || gamerTag.Trim() == "")
             {
