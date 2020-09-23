@@ -65,6 +65,13 @@ namespace CallOfDutyApiWrapper
             }
         }
 
+        /// <summary>
+        /// Pulls JObject of overview data 
+        /// </summary>
+        /// <param name="gamerTag">user name for a user, needs to match the platform the id is for</param>
+        /// <param name="version"></param>
+        /// <param name="platform"></param>
+        /// <returns>Returns deserialized JObject of overview</returns>
         public async Task<JObject> GetPlayerOverviewInfoForWarzoneAsync(string gamerTag, Enums.Version version, Platform platform)
         {
             JObject json = new JObject();
@@ -94,6 +101,12 @@ namespace CallOfDutyApiWrapper
             return null;
         }
 
+        ///<summary>
+        ///Pulls recent 20 matches with summary data
+        ///</summary>
+        ///<returns>
+        ///Returns deserialized JObject containing match data and summary info
+        /// </returns>
         public async Task<JObject> GetLast20PlayerMatchDataForWarzoneAsync(string gamerTag, Enums.Version version, Platform platform)
         {
             if (gamerTag == null || gamerTag.Trim() == "")
@@ -123,6 +136,15 @@ namespace CallOfDutyApiWrapper
             return null;
         }
 
+        ///<summary>
+        ///Pulls data based on Unix Time in milliseconds
+        ///</summary>
+        ///<returns>
+        ///Returns deserialized JObject containing match data of specified date, and summary info
+        /// </returns>
+        /// <exception cref="Exception">
+        /// Thrown when date is not at least 13 digits, or greater than current unix dates digits in milliseconds 
+        /// </exception>
         public async Task<JObject> GetPlayerMatchDataForByUnixMillisecondsDateWarzoneAsync(string gamerTag, string startTime, string endTime, Enums.Version version, Platform platform)
         {
             if (gamerTag == null || gamerTag.Trim() == "")
