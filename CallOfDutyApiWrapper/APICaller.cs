@@ -74,11 +74,7 @@ namespace CallOfDutyApiWrapper
                 return null;
             }
 
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             var platformString = EnumSwitch.SwitchPlatform(platform);
-
 
             string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/{platformString}/fullMatch/wz/{matchId}/en";;
             var json = await MakeRequestAndReturnJsonOrNull(getPlayerUrl);
@@ -104,9 +100,6 @@ namespace CallOfDutyApiWrapper
 
             var trimmedGamerTag = gamerTag.Trim();
 
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             var urlEncodedUsername = HttpUtility.UrlEncode(trimmedGamerTag);
             string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/stats/cod/{versionString}/title/mw/platform/{platformString}/gamer/{urlEncodedUsername}/profile/type/wz";
             var json = await MakeRequestAndReturnJsonOrNull(getPlayerUrl);
@@ -127,9 +120,6 @@ namespace CallOfDutyApiWrapper
             {
                 return null;
             }
-
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var platformString = EnumSwitch.SwitchPlatform(platform);
             var versionString = EnumSwitch.SwitchVersion(version);
@@ -159,9 +149,6 @@ namespace CallOfDutyApiWrapper
             {
                 return null;
             }
-
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var platformString = EnumSwitch.SwitchPlatform(platform);
             var versionString = EnumSwitch.SwitchVersion(version);
@@ -200,7 +187,6 @@ namespace CallOfDutyApiWrapper
             {
                 throw new Exception($"startTime must be unix time in milliseconds. Check your inputs for the correct number of digits: Current unix time in miliseconds is {unixEpochNow} with {unixEpochNow.ToString().Length} digits. If you want to access last 20 default use GetLast20PlayerMatchDataForWarzoneAsync()");
             }
-
 
             var platformString = EnumSwitch.SwitchPlatform(platform);
             var versionString = EnumSwitch.SwitchVersion(version);
@@ -242,9 +228,6 @@ namespace CallOfDutyApiWrapper
             {
                 throw new Exception($"startTime must be unix time in milliseconds. Check your inputs for the correct number of digits: Current unix time in miliseconds is {unixEpochNow} with {unixEpochNow.ToString().Length} digits.  If you want to access last 20 default use GetPlayerMatchDataForWarzoneFullAsync()");
             }
-
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var platformString = EnumSwitch.SwitchPlatform(platform);
             var versionString = EnumSwitch.SwitchVersion(version);
