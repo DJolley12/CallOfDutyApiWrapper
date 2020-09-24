@@ -139,6 +139,11 @@ namespace CallOfDutyApiWrapper
         ///<summary>
         ///Pulls data based on Unix Time in milliseconds
         ///</summary>
+        /// <param name="gamerTag">Activision Id or gamerTag string</param>
+        /// <param name="startTime">Starting time period to look up in unix time milliseconds</param>
+        /// <param name="endTime">Ending time period to look up in unix time milliseconds</param>
+        /// <param name="version">API version to use</param>
+        /// <param name="platform">Platform the user id is on</param>
         ///<returns>
         ///Returns deserialized JObject containing match data of specified date, and summary info
         /// </returns>
@@ -163,11 +168,16 @@ namespace CallOfDutyApiWrapper
 
             var platformString = EnumSwitch.SwitchPlatform(platform);
             var versionString = EnumSwitch.SwitchVersion(version);
+            var lookupType = "gamer";
+            //if (platform == Platform.Uno)
+            //{
+            //    lookupType = "id";
+            //}
 
             var trimmedGamerTag = gamerTag.Trim();
 
             var urlEncodedUsername = HttpUtility.UrlEncode(trimmedGamerTag);
-            string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/crm/cod/{versionString}/title/mw/platform/{platformString}/gamer/{urlEncodedUsername}/matches/wz/start/{startTime}/end/{endTime}/details";
+            string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/crm/cod/{versionString}/title/mw/platform/{platformString}/{lookupType}/{urlEncodedUsername}/matches/wz/start/{startTime}/end/{endTime}/details";
             var response = await client.GetAsync(getPlayerUrl);
             var content = await response.Content.ReadAsStringAsync();
             var responseSuccess = ReturnSuccess(content);
@@ -179,6 +189,60 @@ namespace CallOfDutyApiWrapper
                 
             return null;
         }
+
+        /// <summary>
+        /// Pulls complete match history, but less detailed data. Includes match Id, start time
+        /// </summary>
+        /// <param name="gamerTag">Activision Id or gamerTag string</param>
+        /// <param name="startTime">Starting time period to look up in unix time milliseconds</param>
+        /// <param name="endTime">Ending time period to look up in unix time milliseconds</param>
+        /// <param name="version">API version to use</param>
+        /// <param name="platform">Platform the user id is on</param>
+        /// <returns>Returns deserialized JObject</returns>
+        /// <exception cref="Exception">
+        /// Thrown when date is not at least 13 digits, or greater than current unix dates digits in milliseconds 
+        /// </exception>
+        public async Task<JObject> GetPlayerMatchDataForByUnixMillisecondsDateWarzoneFullAsync(string gamerTag, string startTime, string endTime, Enums.Version version, Platform platform)
+        {
+            if (gamerTag == null || gamerTag.Trim() == "")
+            {
+                return null;
+            }
+
+            var unixEpochNow = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            if (startTime != "0" && startTime.Length < 13 && endTime.Length > unixEpochNow.ToString().Length || endTime != "0" && endTime.Length < 13 && endTime.Length > unixEpochNow.ToString().Length)
+            {
+                throw new Exception($"startTime must be either 0, or unix time in milliseconds. Check your inputs for the correct number of digits: Current unix time in miliseconds is {unixEpochNow} with {unixEpochNow.ToString().Length} digits");
+            }
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var platformString = EnumSwitch.SwitchPlatform(platform);
+            var versionString = EnumSwitch.SwitchVersion(version);
+            var lookupType = "gamer";
+            //if (platform == Platform.Uno)
+            //{
+            //    lookupType = "id";
+            //}
+
+            var trimmedGamerTag = gamerTag.Trim();
+
+            var urlEncodedUsername = HttpUtility.UrlEncode(trimmedGamerTag);
+            string getPlayerUrl = $"https://my.callofduty.com/api/papi-client/crm/cod/{versionString}/title/mw/platform/{platformString}/{lookupType}/{urlEncodedUsername}/matches/wz/start/{startTime}/end/{endTime}";
+            var response = await client.GetAsync(getPlayerUrl);
+            var content = await response.Content.ReadAsStringAsync();
+            var responseSuccess = ReturnSuccess(content);
+            if (responseSuccess)
+            {
+                var deserializedContent = (JObject)JsonConvert.DeserializeObject(content);
+                return deserializedContent;
+            }
+
+            return null;
+        }
+
+        
 
         private string ParseCookie(string cookieValue)
         {

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallOfDutyApiWrapper", "CallOfDutyApiWrapper\CallOfDutyApiWrapper.csproj", "{17A6675F-679A-4578-AD14-0D91C465E8FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CODConsole", "CODConsole\CODConsole.csproj", "{2CC50677-DE7F-43DA-A87D-6EF55DB6EFCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CODConsole", "CODConsole\CODConsole.csproj", "{2CC50677-DE7F-43DA-A87D-6EF55DB6EFCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateHelpers", "DateHelpers\DateHelpers.csproj", "{D51E61EE-BF31-4B68-A600-A4922F7323C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2CC50677-DE7F-43DA-A87D-6EF55DB6EFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC50677-DE7F-43DA-A87D-6EF55DB6EFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC50677-DE7F-43DA-A87D-6EF55DB6EFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51E61EE-BF31-4B68-A600-A4922F7323C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51E61EE-BF31-4B68-A600-A4922F7323C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51E61EE-BF31-4B68-A600-A4922F7323C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51E61EE-BF31-4B68-A600-A4922F7323C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
