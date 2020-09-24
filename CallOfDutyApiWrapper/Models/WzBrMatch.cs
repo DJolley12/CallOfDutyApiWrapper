@@ -18,5 +18,9 @@ namespace CallOfDutyApiWrapper.Models
         public int PlayerCount { get; set; }
         public WzBrPlayerStats PlayerStats { get; set; }
         public WzBrPlayer Player { get; set; }
+        public int TeamCount { get; set; }
+        public string RankedTeams { get; set; }
+        public bool Draw { get; set; }
+        public bool PrivateMatch { get; set; }
     }
 }

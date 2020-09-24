@@ -6,5 +6,8 @@ namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutMo
 {
     public class WzBrAttachments
     {
+        public string Name { get; set; }
+        public string Label { get; set; }
+        public string Category { get; set; }
     }
 }

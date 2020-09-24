@@ -1,4 +1,6 @@
-﻿using CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels;
+﻿using CallOfDutyApiWrapper.Models.MatchModels;
+using CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels;
+using System.Collections.Generic;
 
 namespace CallOfDutyApiWrapper.Models
 {
@@ -6,8 +8,10 @@ namespace CallOfDutyApiWrapper.Models
     {
         public WzBrPrimaryWeapon PrimaryWeapon { get; set; }
         public WzBrSecondaryWeapon SecondaryWeapon { get; set; }
-        public WzBrPerks Perks { get; set; }
-        public WzBrExtraPerks ExtraPerks { get; set; }
-        public WzBrKillstreaks Killstreaks { get; set; }
+        public List<WzBrPerk> Perks { get; set; }
+        public List<WzBrPerk> ExtraPerks { get; set; }
+        public List<WzBrKillstreak> Killstreaks { get; set; }
+        public WzBrThrown Tactical { get; set; }
+        public WzBrThrown Lethal { get; set; }
     }
 }
