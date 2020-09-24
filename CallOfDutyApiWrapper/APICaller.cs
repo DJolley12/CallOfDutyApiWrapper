@@ -40,7 +40,7 @@ namespace CallOfDutyApiWrapper
                 string loginUrl = $"https://profile.callofduty.com/do_login?new_SiteId=co";
 
 
-                HttpResponseMessage tokenResponse = await Task.Run(() => client.GetAsync(tokenUrl));
+                HttpResponseMessage tokenResponse = await client.GetAsync(tokenUrl);
                 var tContentString = await tokenResponse.Content.ReadAsStringAsync();
                 var headers = tokenResponse.Headers.FirstOrDefault(h => h.Key == "Set-Cookie");
                 var cookieValue = headers.Value.FirstOrDefault(v => v.Contains("XSRF-TOKEN"));
