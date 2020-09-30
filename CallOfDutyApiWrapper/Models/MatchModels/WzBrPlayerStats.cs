@@ -31,6 +31,8 @@ namespace CallOfDutyApiWrapper.Models
         public int TimePlayed { get; set; }
         public int Executions { get; set; }
         public int GulagKills { get; set; }
+        public int Nearmisses { get; private set; }
+        public int ObjectiveBrCacheOpen { get; private set; }
         public decimal PercentTimeMoving { get; set; }
         public int MiscXp { get; set; }
         public int LongestStreak { get; set; }
@@ -87,6 +89,45 @@ namespace CallOfDutyApiWrapper.Models
 
             Int32.TryParse(jToken["deaths"].ToString(), out int deaths);
             Deaths = deaths;
+
+            decimal.TryParse(jToken["kdRatio"].ToString(), out decimal kdRatio);
+            KdRatio = kdRatio;
+
+            Int32.TryParse(jToken["objectiveBrDownEnemyCircle1"].ToString(), out int objectiveBrDownEnemyCircle1);
+            ObjectiveBrDownEnemyCircle1 = objectiveBrDownEnemyCircle1;
+
+            Int32.TryParse(jToken["bonusXp"].ToString(), out int bonusXp);
+            BonusXp = bonusXp;
+
+            Int32.TryParse(jToken["gulagDeaths"].ToString(), out int gulagDeaths);
+            GulagDeaths = gulagDeaths;
+
+            Int32.TryParse(jToken["timePlayed"].ToString(), out int timePlayed);
+            TimePlayed = timePlayed;
+
+            Int32.TryParse(jToken["nearmisses"].ToString(), out int nearmisses);
+            Nearmisses = nearmisses;
+
+            Int32.TryParse(jToken["objectiveBrCacheOpen"].ToString(), out int objectiveBrCacheOpen);
+            ObjectiveBrCacheOpen = objectiveBrCacheOpen;
+
+            Int32.TryParse(jToken["percentTimeMoving"].ToString(), out int percentTimeMoving);
+            PercentTimeMoving = percentTimeMoving;
+
+            Int32.TryParse(jToken["miscXp"].ToString(), out int miscXp);
+            MiscXp = miscXp;
+
+            Int32.TryParse(jToken["longestStreak"].ToString(), out int longestStreak);
+            LongestStreak = longestStreak;
+
+            Int32.TryParse(jToken["teamPlacement"].ToString(), out int teamPlacement);
+            TeamPlacement = teamPlacement;
+
+            Int32.TryParse(jToken["damageDone"].ToString(), out int damageDone);
+            DamageDone = damageDone;
+
+            Int32.TryParse(jToken["damageTaken"].ToString(), out int damageTaken);
+            DamageTaken = damageTaken;
         }
     }
 }
