@@ -1,5 +1,6 @@
 ﻿using CallOfDutyApiWrapper.Models.MatchModels;
 using CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace CallOfDutyApiWrapper.Models
@@ -13,5 +14,11 @@ namespace CallOfDutyApiWrapper.Models
         public List<WzBrKillstreak> Killstreaks { get; set; }
         public WzBrThrown Tactical { get; set; }
         public WzBrThrown Lethal { get; set; }
+
+        public WzBrLoadout(JToken jToken)
+        {
+            var primaryWeapon = jToken["primaryWeapon"];
+            PrimaryWeapon = new WzBrPrimaryWeapon(primaryWeapon);
+        }
     }
 }

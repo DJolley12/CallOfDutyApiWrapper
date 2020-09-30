@@ -10,6 +10,6 @@ namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutMo
         public string Name { get; set; }
         public string Label { get; set; }
         public int Variant { get; set; }
-        public WzBrAttachments Attachments { get; set; }
+        public List<WzBrAttachment> Attachments { get; set; }
     }
 }

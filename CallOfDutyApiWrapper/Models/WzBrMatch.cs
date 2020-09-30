@@ -51,7 +51,11 @@ namespace CallOfDutyApiWrapper.Models
             Int32.TryParse(jToken["playerCount"].ToString(), out int playerCount);
             PlayerCount = playerCount;
 
+            var playerStats = jToken["playerStats"];
+            PlayerStats = new WzBrPlayerStats(playerStats);
 
+            var player = jToken["player"];
+            Player = new WzBrPlayer(player);
         }
     }
 }
