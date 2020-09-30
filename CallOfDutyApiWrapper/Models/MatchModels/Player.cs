@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CallOfDutyApiWrapper.Models
 {
-    public class WzBrPlayer
+    public class Player
     {
         public string Team { get; set; }
         public int Rank { get; set; }
@@ -17,7 +17,7 @@ namespace CallOfDutyApiWrapper.Models
         public WzBrMissionStats BrMissionStats { get; set; }
         public WzBrLoadout Loadout { get; set; }
 
-        public WzBrPlayer(JToken jToken)
+        public Player(JToken jToken)
         {
             Team = jToken["team"].ToString();
 
