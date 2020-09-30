@@ -4,9 +4,9 @@ using System.Text;
 
 namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels
 {
-    public class WzBrPerk
+    public class Killstreak
     {
-        public string Name { get; set; }
-        public string Label { get; set; }   
+        public string name { get; set; }
+        public string label { get; set; }
     }
 }

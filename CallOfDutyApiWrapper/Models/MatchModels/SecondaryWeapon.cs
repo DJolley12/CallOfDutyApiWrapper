@@ -5,11 +5,11 @@ using System.Text;
 
 namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels
 {
-    public class WzBrSecondaryWeapon
+    public class SecondaryWeapon
     {
-        public string Name { get; set; }
-        public string Label { get; set; }
-        public int Variant { get; set; }
-        public List<WzBrAttachment> Attachments { get; set; }
+        public string name { get; set; }
+        public string label { get; set; }
+        public int variant { get; set; }
+        public List<Attachment> attachments { get; set; }
     }
 }

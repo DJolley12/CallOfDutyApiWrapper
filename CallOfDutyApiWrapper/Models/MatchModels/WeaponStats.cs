@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CallOfDutyApiWrapper.Models
 {
-    public class WzBrWeaponStats
+    public class WeaponStats
     {
     }
 }

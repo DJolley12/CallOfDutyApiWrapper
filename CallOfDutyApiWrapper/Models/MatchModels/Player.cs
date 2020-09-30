@@ -8,38 +8,13 @@ namespace CallOfDutyApiWrapper.Models
 {
     public class Player
     {
-        public string Team { get; set; }
-        public int Rank { get; set; }
-        public string[] Awards { get; set; }
-        public string Username { get; set; }
-        public ulong Uno { get; set; }
-        public string Clantang { get; set; }
-        public WzBrMissionStats BrMissionStats { get; set; }
-        public WzBrLoadout Loadout { get; set; }
-
-        public Player(JToken jToken)
-        {
-            Team = jToken["team"].ToString();
-
-            Int32.TryParse(jToken["rank"].ToString(), out int rank);
-            Rank = rank;
-
-            Awards = jToken["awards"].ToObject<string[]>();
-
-            Username = jToken["username"].ToString();
-
-            ulong.TryParse(jToken["uno"].ToString(), out ulong uno);
-            Uno = uno;
-
-            Clantang = jToken["clantang"].ToString();
-
-            var brMissionStats = jToken["brMissionStats"];
-            BrMissionStats = new WzBrMissionStats(brMissionStats);
-
-            var loadout = jToken["loadout"];
-            Loadout = new WzBrLoadout(loadout);
-
-
-        }
+        public string team { get; set; }
+        public int rank { get; set; }
+        public string[] awards { get; set; }
+        public string username { get; set; }
+        public ulong uno { get; set; }
+        public string clantang { get; set; }
+        public MissionStats brMissionStats { get; set; }
+        public Loadout loadout { get; set; }
     }
 }

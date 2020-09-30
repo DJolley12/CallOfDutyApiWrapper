@@ -7,14 +7,14 @@ using System.Text;
 
 namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutModels
 {
-    public class WzBrPrimaryWeapon
+    public class PrimaryWeapon
     {
         public string Name { get; set; }
         public string Label { get; set; }
         public int Variant { get; set; }
-        public List<WzBrAttachment> Attachments { get; set; }
+        public List<Attachment> Attachments { get; set; }
 
-        public WzBrPrimaryWeapon(JToken jToken)
+        public PrimaryWeapon(JToken jToken)
         {
             Name = jToken["name"].ToString();
             Label = jToken["label"].ToString();
@@ -23,10 +23,10 @@ namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels.WzBrLoadoutMo
             Variant = variant;
 
             var attachments = jToken["attachments"];
-            Attachments = new List<WzBrAttachment>();
+            Attachments = new List<Attachment>();
             for (int i = 0; i < attachments.Count(); i++)
             {
-                var attachment = new WzBrAttachment(attachments[i]);
+                var attachment = new Attachment(attachments[i]);
                 Attachments.Add(attachment);
             }
 
