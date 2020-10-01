@@ -7,8 +7,8 @@ namespace CallOfDutyApiWrapper.Models
 {
     public class Loadout
     {
-        public PrimaryWeapon primaryWeapon { get; set; }
-        public SecondaryWeapon secondaryWeapon { get; set; }
+        public Weapon primaryWeapon { get; set; }
+        public Weapon secondaryWeapon { get; set; }
         public List<Perk> perks { get; set; }
         public List<Perk> extraPerks { get; set; }
         public List<Killstreak> killstreaks { get; set; }

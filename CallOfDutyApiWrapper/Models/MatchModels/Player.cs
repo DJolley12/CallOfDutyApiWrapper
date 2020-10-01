@@ -9,7 +9,7 @@ namespace CallOfDutyApiWrapper.Models
     public class Player
     {
         public string team { get; set; }
-        public int rank { get; set; }
+        public decimal rank { get; set; }
         public string[] awards { get; set; }
         public string username { get; set; }
         public ulong uno { get; set; }

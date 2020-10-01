@@ -33,11 +33,11 @@ namespace CallOfDutyApiWrapper
         public async Task LoginUserAsync()
         {
             var now = DateTime.UtcNow;
-            var elapsedLoginTime = now - lastLoggedIn;
-            if (elapsedLoginTime == null || elapsedLoginTime.TotalMinutes > 60)
+            var elapsedLogdecimalime = now - lastLoggedIn;
+            if (elapsedLogdecimalime == null || elapsedLogdecimalime.TotalMinutes > 60)
             {
                 string tokenUrl = $"https://profile.callofduty.com/cod/login";
-                string loginUrl = $"https://profile.callofduty.com/do_login?new_SiteId=co";
+                string loginUrl = $"https://profile.callofduty.com/do_loginnew_SiteId=co";
 
 
                 HttpResponseMessage tokenResponse = await client.GetAsync(tokenUrl);

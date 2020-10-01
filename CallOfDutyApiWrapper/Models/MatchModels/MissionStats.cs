@@ -7,9 +7,9 @@ namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels
 {
     public class MissionStats
     {
-        public int missionsComplete { get; set; }
-        public int totalMissionXpEarned { get; set; }
-        public int totalMissionWeaponXpEarned { get; set; }
+        public decimal missionsComplete { get; set; }
+        public decimal totalMissionXpEarned { get; set; }
+        public decimal totalMissionWeaponXpEarned { get; set; }
         public string[] missionStatsByType { get; set; }
     }
 }

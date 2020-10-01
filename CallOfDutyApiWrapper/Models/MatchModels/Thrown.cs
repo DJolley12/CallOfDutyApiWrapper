@@ -6,7 +6,7 @@ namespace CallOfDutyApiWrapper.Models.MatchModels
 {
     public class Thrown
     {
-        public string Name { get; set; }
-        public string Label { get; set; }
+        public string name { get; set; }
+        public string label { get; set; }
     }
 }

@@ -7,37 +7,37 @@ namespace CallOfDutyApiWrapper.Models
 {
     public class PlayerStats
     {
-        public int medalXp { get; set; }
-        public int objectiveLastStandKill { get; set; }
-        public int matchXp { get; set; }
-        public int kills { get; set; }
-        public int scoreXp { get; set; }
-        public int wallBangs { get; set; }
-        public int score { get; set; }
-        public int totalXp { get; set; }
-        public int headshots { get; set; }
-        public int assists { get; set; }
-        public int challengeXp { get; set; }
-        public int rank { get; set; }
-        public decimal? scorePerMinute { get; set; }
-        public int distanceTraveled { get; set; }
-        public int teamSurvivalTime { get; set; }
-        public int deaths { get; set; }
-        public decimal? kdRatio { get; set; }
-        public int objectiveBrDownEnemyCircle1 { get; set; }
-        public int objectiveBrMissionPickupTablet { get; set; }
-        public int bonusXp { get; set; }
-        public int gulagDeaths { get; set; }
-        public int timePlayed { get; set; }
-        public int executions { get; set; }
-        public int gulagKills { get; set; }
-        public int nearmisses { get; private set; }
-        public int objectiveBrCacheOpen { get; private set; }
+        public decimal medalXp { get; set; }
+        public decimal objectiveLastStandKill { get; set; }
+        public decimal matchXp { get; set; }
+        public decimal kills { get; set; }
+        public decimal scoreXp { get; set; }
+        public decimal wallBangs { get; set; }
+        public decimal score { get; set; }
+        public decimal totalXp { get; set; }
+        public decimal headshots { get; set; }
+        public decimal assists { get; set; }
+        public decimal challengeXp { get; set; }
+        public decimal rank { get; set; }
+        public decimal scorePerMinute { get; set; }
+        public decimal distanceTraveled { get; set; }
+        public decimal teamSurvivalTime { get; set; }
+        public decimal deaths { get; set; }
+        public decimal kdRatio { get; set; }
+        public decimal objectiveBrDownEnemyCircle1 { get; set; }
+        public decimal objectiveBrMissionPickupTablet { get; set; }
+        public decimal bonusXp { get; set; }
+        public decimal gulagDeaths { get; set; }
+        public decimal timePlayed { get; set; }
+        public decimal executions { get; set; }
+        public decimal gulagKills { get; set; }
+        public decimal nearmisses { get; private set; }
+        public decimal objectiveBrCacheOpen { get; private set; }
         public decimal percentTimeMoving { get; set; }
-        public int miscXp { get; set; }
-        public int longestStreak { get; set; }
-        public int teamPlacement { get; set; }
-        public int damageDone { get; set; }
-        public int damageTaken { get; set; }
+        public decimal miscXp { get; set; }
+        public decimal longestStreak { get; set; }
+        public decimal teamPlacement { get; set; }
+        public decimal damageDone { get; set; }
+        public decimal damageTaken { get; set; }
     }
 }
