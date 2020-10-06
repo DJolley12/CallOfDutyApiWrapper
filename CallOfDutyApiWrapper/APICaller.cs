@@ -37,7 +37,7 @@ namespace CallOfDutyApiWrapper
             if (elapsedLogdecimalime == null || elapsedLogdecimalime.TotalMinutes > 60)
             {
                 string tokenUrl = $"https://profile.callofduty.com/cod/login";
-                string loginUrl = $"https://profile.callofduty.com/do_loginnew_SiteId=co";
+                string loginUrl = $"https://profile.callofduty.com/do_login?new_SiteId=co";
 
 
                 HttpResponseMessage tokenResponse = await client.GetAsync(tokenUrl);

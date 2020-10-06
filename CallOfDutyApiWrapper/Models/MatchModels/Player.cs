@@ -1,4 +1,5 @@
-﻿using CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels;
+﻿using CallOfDutyApiWrapper.Models.MatchModels;
+using CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace CallOfDutyApiWrapper.Models
     {
         public string team { get; set; }
         public decimal rank { get; set; }
-        public string[] awards { get; set; }
+        public Awards awards { get; set; }
         public string username { get; set; }
         public ulong uno { get; set; }
         public string clantang { get; set; }
         public MissionStats brMissionStats { get; set; }
-        public Loadout loadout { get; set; }
+        public List<Loadout> loadout { get; set; }
     }
 }

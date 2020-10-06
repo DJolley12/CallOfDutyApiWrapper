@@ -10,6 +10,6 @@ namespace CallOfDutyApiWrapper.Models.MatchModels.WzBrPlayerModels
         public decimal missionsComplete { get; set; }
         public decimal totalMissionXpEarned { get; set; }
         public decimal totalMissionWeaponXpEarned { get; set; }
-        public string[] missionStatsByType { get; set; }
+        public MissionStatsByType missionStatsByType { get; set; }
     }
 }
